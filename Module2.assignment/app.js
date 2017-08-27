@@ -1,8 +1,6 @@
 (function(){
   'use strict';
 
-  var name = ["neha", "ruby", "sonu", "monu"];
-
 var ToBuy = [
   {
     name: "cookies",
@@ -35,16 +33,15 @@ var ToBuy = [
 
 ];
 
-var bought = [];
 
-  angular.module('check-off', [])
-  .controller('controller1', MyController1)
-  .controller('controller2', MyController2)
-  .service('shopService', shopService);
-
+  angular.module('ShoppingListCheckOff', [])
+  .controller('ToBuyController', ToBuyController)
+  .controller('AlreadyBoughtController', AlreadyBoughtController)
+  .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
 
 
-  function shopService(){
+
+  function ShoppingListCheckOffService(){
     var service = this;
     var shoppedItem = [];
 
@@ -64,23 +61,23 @@ var bought = [];
   }
 
 
-  MyController1.inject = ['shopService'];
-  function MyController1(shopService){
+  ToBuyController.inject = ['ShoppingListCheckOffService'];
+  function ToBuyController(ShoppingListCheckOffService){
     var shopList = this;
     shopList.buylist = ToBuy;
 
     shopList.pushToBought = function(itemIndex){
-    shopService.addItem(shopList.buylist[itemIndex].name, shopList.buylist[itemIndex].quantity);
+    ShoppingListCheckOffService.addItem(shopList.buylist[itemIndex].name, shopList.buylist[itemIndex].quantity);
     shopList.buylist.splice(itemIndex, 1);
     };
   }
 
 
 
-  MyController2.inject = ['shopService'];
-  function MyController2(shopService){
+  AlreadyBoughtController.inject = ['ShoppingListCheckOffService'];
+  function AlreadyBoughtController(ShoppingListCheckOffService){
     var boughtList = this;
-    boughtList.item = shopService.getItem();
+    boughtList.item = ShoppingListCheckOffService.getItem();
   }
 
 

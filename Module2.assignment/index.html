@@ -6,9 +6,9 @@
     <script src="app.js"></script>
     <title>Shopping</title>
   </head>
-  <body ng-app = "check-off">
+  <body ng-app = "ShoppingListCheckOff">
       <h3>To Buy</h3>
-    <div ng-controller = "controller1 as shopList">
+    <div ng-controller = "ToBuyController as shopList">
       <ul>
         <li ng-repeat = "item in shopList.buylist">Buy {{item.quantity}} {{item.name}}
           <button ng-click = "shopList.pushToBought($index)"> bought </button>
@@ -18,12 +18,12 @@
     </div>
 
       <h3>Already bought</h3>
-    <div ng-controller = "controller2 as showList">
+    <div ng-controller = "AlreadyBoughtController as boughtList">
         <ul>
-          <li ng-repeat = "item in showList.item">Bought {{item.quantity}} {{item.name}}
+          <li ng-repeat = "item in boughtList.item">Bought {{item.quantity}} {{item.name}}
           </li>
         </ul>
-        <div ng-if = "showList.item.length== 0"> Nothing bought yet!</div>
+        <div ng-if = "boughtList.item.length== 0"> Nothing bought yet!</div>
       </div>
     </div>
   </body>
