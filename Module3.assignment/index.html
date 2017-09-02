@@ -23,7 +23,7 @@
       <div>
       <ul>
         <li ng-repeat = "list in menu.found">{{list.shortName}}, {{list.name}}, {{list.description}}
-        <button ng-click = "removeItem()"> Don't want this one !</button>
+        <button ng-click = "menu.removeItem($index)"> Don't want this one !</button>
         </li>
       </ul>
     </div>
