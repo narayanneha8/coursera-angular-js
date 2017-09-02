@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Restaurant</title>
+  </head>
+  <body ng-app = "NarrowItDownApp">
+    <div ng-controller= "controller as menu">
+      <h3>List Of Menu</h3>
+
+
+
+      <input type="text" ng-model = "menu.item" placeholder="item">
+      <button ng-click = "menu.foundItems()">Narrow It Down For Me!</button>
+      <!-- <div ng-if =" syntax.found.lenghth == 0 || menuItem == """>Nothing Found!
+      </div> -->
+
+      <!-- <ol>
+        <li ng-repeat = "list in menu.categories.menu_items"> {{list.name}}</li>
+      </ol> -->
+      <div>
+      <ul>
+        <li ng-repeat = "list in menu.found">{{list.shortName}}, {{list.name}}, {{list.description}}
+        <button ng-click = "removeItem()"> Don't want this one !</button>
+        </li>
+      </ul>
+    </div>
+   </div>
+  </body>
+</html>
