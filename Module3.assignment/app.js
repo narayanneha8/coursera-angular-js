@@ -2,11 +2,11 @@
 'use strict';
 
 angular.module('NarrowItDownApp', [])
-.controller('controller', MenuCategoriesController)
+.controller('controller', NarrowItDownController )
 .service('menuService', MenuSearchService);
 
 MenuCategoriesController.$inject = ['menuService'];
-function MenuCategoriesController(menuService) {
+function NarrowItDownController (menuService) {
   var menu = this;
   menu.item = "";
   menu.found = [];
@@ -14,7 +14,7 @@ function MenuCategoriesController(menuService) {
 
   menu.foundItems = function() {
     try {
-      var promise = menuService.getMenuCategories(menu.item);
+      var promise = menuService.getMatchedMenuItems(menu.item);
       // console.log("please handle error");
       // menu.found = menuService.getFound();
     } catch(error) {
@@ -36,7 +36,7 @@ function MenuSearchService($http) {
   var service = this;
   var found = [];
 
-  service.getMenuCategories = function (userEntry) {
+  service.getMatchedMenuItems = function (userEntry) {
     if (userEntry!= "") {
       var promise = $http({
         method: "GET",
