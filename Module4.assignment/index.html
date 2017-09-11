@@ -2,35 +2,58 @@
 <html ng-app = "menuapp">
   <head>
     <meta charset="utf-8">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Menu App</title>
    </head>
-  <body ng-controller = "dataController as list">
+  <body>
     <h1>Menu Application using component</h1>
-    <div>
-      <ol>
-        <li ng-repeat = "items in list.categories"> {{items}}</li>
-      </ol>
+    <div ng-controller = "dataController as data">
+
+      <categories items="data.categories"></categories>
+
+      <items menu = "data.menu" = ></items>
+
+      <!-- <ol>
+        <li ng-repeat = "category in list.categories">
+          (<a href="" ng-click="list.items(category.short_name);">{{category.short_name }}</a>)
+         {{ category.name }}</li>
+      </ol> -->
+
+      <!-- <ol>
+        <li ng-repeat = "items in list.menu_items">{{items}}</li>
+      </ol> -->
+
+      <!-- <div class="tab">
+        <a ui-sref = "home" ui-sref-active="activeTab">home</a>
+        <a ui-sref = "categories" ui-sref-active="activeTab">categories</a>
+        <a ui-sref = "items" ui-sref-active="activeTab">items</a>
+
+      </div>
+
+      <ui-view></ui-view> -->
+
 
     </div>
 
     <!-- libraries -->
-    <script src = "lib/jquery-3.1.0.min.js"></script>
+    <!-- <script src = "lib/jquery-3.1.0.min.js"></script> -->
     <script src = "lib/angular.min.js"></script>
+    <script src = "lib/angular-ui-router.min.js"></script>
 
     <!-- Modules -->
     <script src="src/menuapp/menuapp.module.js"></script>
     <script src="src/data/data.module.js"></script>
 
+    <!-- routes -->
+    <script src="src/router.js"></script>
+
     <!-- menuapp artifacts -->
-    <script src="src/menuapp/menuapp.module.js"></script>
-    <script src="src/menuapp/menuapp.service.js"></script>
-    <script src="src/menuapp/menuapp.controller.js"></script>
-    <script src="src/menuapp/menuapp.component.js"></script>
 
     <!-- data artifacts -->
     <script src="src/data/menudata.service.js"></script>
+    <script src="src/data/menudataController.js"></script>
+    <script src="src/data/categories.component.js"></script>
+    <script src="src/data/items.component.js"></script>
 
   </body>
 </html>

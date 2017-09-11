@@ -1,0 +1,12 @@
+<div> This is Categories page</div>
+<div >
+  <ol>
+    <li ng-repeat = "category in $ctrl.items">
+      (<a href="" ng-click="$ctrl.itemList(category.short_name);">{{category.short_name }}</a>)
+       {{ category.name }}
+      
+     </li>
+  </ol>
+
+
+</div>

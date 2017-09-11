@@ -15,11 +15,13 @@
       console.log("SomeThing went wrong in category");
     });
 
-    menudata.items = function(shortName){
+    menudata.itemList = function(shortName){
       var promise = MenuDataService.getItemsForCategory(shortName);
+      console.log("i am getting clicked", shortName);
 
       promise.then(function(response){
-        return response.data;
+        console.log(response.data);
+        menudata.menu =  response.data.menu_items;
       }).catch(function(error){
         console.log("SomeThing went wrong in category by short Name");
       });

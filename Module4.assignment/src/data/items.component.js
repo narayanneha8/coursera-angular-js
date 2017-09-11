@@ -3,17 +3,11 @@
 
   angular.module('data')
   .component('items',{
-    templateUrl: "",
-    controller: ItemsComponentController,
+    templateUrl: "src/menuapp/templates/items.template.html",
     bindings:{
-      items: '<',
-      myTitle: '@Title',
-      onRemove: '&'
-    }
+      menu: '<',
+      }
 
   });
 
-  function ItemsComponentController(){
-
-  }
 })();
