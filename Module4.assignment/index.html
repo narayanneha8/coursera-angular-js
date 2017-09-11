@@ -6,32 +6,28 @@
     <title>Menu App</title>
    </head>
   <body>
-    <h1>Menu Application using component</h1>
-    <div ng-controller = "dataController as data">
+    <div>
+      <!-- <categories items="data.categories"></categories>
 
-      <categories items="data.categories"></categories>
+      <items menu = "data.menu" = ></items> -->
 
-      <items menu = "data.menu" = ></items>
-
-      <!-- <ol>
+      <!-- <ol ng-controller = "dataController as list">
         <li ng-repeat = "category in list.categories">
           (<a href="" ng-click="list.items(category.short_name);">{{category.short_name }}</a>)
          {{ category.name }}</li>
-      </ol> -->
+      </ol>
 
-      <!-- <ol>
+      <ol ng-controller = "itemController as list">
         <li ng-repeat = "items in list.menu_items">{{items}}</li>
       </ol> -->
 
-      <!-- <div class="tab">
+      <div class="tab">
         <a ui-sref = "home" ui-sref-active="activeTab">home</a>
         <a ui-sref = "categories" ui-sref-active="activeTab">categories</a>
         <a ui-sref = "items" ui-sref-active="activeTab">items</a>
-
       </div>
 
-      <ui-view></ui-view> -->
-
+      <ui-view></ui-view>
 
     </div>
 
@@ -46,12 +42,12 @@
 
     <!-- routes -->
     <script src="src/router.js"></script>
-
     <!-- menuapp artifacts -->
 
     <!-- data artifacts -->
     <script src="src/data/menudata.service.js"></script>
-    <script src="src/data/menudataController.js"></script>
+    <script src="src/data/data.controller.js"></script>
+    <script src="src/data/itemDetailed.controller.js"></script>
     <script src="src/data/categories.component.js"></script>
     <script src="src/data/items.component.js"></script>
 

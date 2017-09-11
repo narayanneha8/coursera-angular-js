@@ -25,6 +25,7 @@
           category: categoryShortName
         }
       });
+      console.log("In http service");
       return response;
     };
   }

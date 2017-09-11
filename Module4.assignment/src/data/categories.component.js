@@ -7,7 +7,6 @@
   //  controller: DataCategoriesComponentController,
     bindings:{
       items: '<',
-      menu: '<'
 
     }
   });

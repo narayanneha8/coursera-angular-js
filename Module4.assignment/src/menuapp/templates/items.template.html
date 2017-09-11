@@ -1,7 +1,8 @@
 <div >
   This is item page
 </div>
-
+<div>
 <ol>
-  <li ng-repeat = "items in $ctrl.menu">{{items}}</li>
+  <li ng-repeat = "menu in item.menu_items">{{menu.short_name}}  {{menu.name}}</li>
 </ol>
+</div>
