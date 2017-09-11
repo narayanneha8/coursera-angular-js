@@ -25,7 +25,7 @@
           category: categoryShortName
         }
       });
-      console.log("In http service");
+      console.log("In http service categoryShortName", categoryShortName);
       return response;
     };
   }

@@ -9,6 +9,14 @@
     var items = this;
     items.menu_items = items;
   }
+
+  ItemController.$inject = ['response'];
+  function ItemController(response){
+    var items = this;
+    console.log("in item controller");
+    console.log("the value of response.data is : ", response.data);
+    items.menu_items = response.data.menu_items;
+  }
   // ItemController.$inject = ['$stateParams', 'categories'];
   // function ItemController($stateParams, categories){
   //   var items = this;

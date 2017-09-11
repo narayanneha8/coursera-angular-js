@@ -1,8 +1,8 @@
 <div> This is Categories page</div>
 <div>
   <ul>
-    <li ng-repeat = "listMenu in list.categories"
-        ui-sref = "items({category: $index})">
-        {{ listMenu.short_name }}, name: {{listMenu.name}}</li>
+    <li ng-repeat = "listMenu in list.categories">
+      <a  ui-sref = "items({category: {{listMenu.short_name}}})">{{ listMenu.short_name }}, name: {{listMenu.name}}</a>
+        </li>
   </ul>
 </div>
