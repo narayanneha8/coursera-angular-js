@@ -2,7 +2,7 @@
 <div>
   <ul>
     <li ng-repeat = "listMenu in list.categories">
-      <a  ui-sref = "items({category: {{listMenu.short_name}}})">{{ listMenu.short_name }}, name: {{listMenu.name}}</a>
+      <a  ui-sref = "items({category: listMenu.short_name})">{{ listMenu.short_name }}, name: {{listMenu.name}}</a>
         </li>
   </ul>
 </div>
