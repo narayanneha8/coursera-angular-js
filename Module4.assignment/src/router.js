@@ -39,12 +39,6 @@
               function($stateParams, MenuDataService){
                 console.log("in router");
                 return MenuDataService.getItemsForCategory($stateParams.category);
-                // .then(function(response){
-                //   console.log("in router response", $stateParams.category);
-                //   console.log("response in xml ", response.data.menu_items);
-                // return response.data.menu_items;
-                //})
-
         }]
       }
 
