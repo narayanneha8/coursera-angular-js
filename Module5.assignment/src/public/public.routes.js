@@ -52,13 +52,7 @@ function routeConfig ($stateProvider) {
       url: '/info',
       templateUrl:'src/public/Sign-Up/info.html',
       controller: 'SignUpController',
-      controllerAs: '$ctrl',
-      resolve: {
-        user: ['SignUpService', function(SignUpService){
-          return SignUpService.getUsers();
-          console.log("users : ", SignUpService.getUsers());
-        }]
-      }
+      controllerAs: 'reg'
 
     });
 }

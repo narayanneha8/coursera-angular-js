@@ -1,11 +1,12 @@
 
-  <div ng-if="$ctrl.completed">
+
+  <div  ng-if="reg.completed">
     First Name: {{ reg.user.firstname}} <br>
     Last Name: {{ reg.user.lastname}} <br>
     Email: {{ reg.user.email}} <br>
     Phone: {{ reg.user.phone }}
   </div>
 
-  <div ng-if="$ctrl.completed">
+  <div ng-if="!reg.completed">
     Not Signed Up Yet.<a ui-sref="public.SignUp"><span> Sign up Now!</span>
   </div>
