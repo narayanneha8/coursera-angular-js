@@ -1,6 +1,6 @@
+
+
 <div class="container">
-
-
   <fieldset>
     <legend>Registration</legend>
     <form name='regForm' novalidate>
@@ -58,6 +58,14 @@
 
   <div ng-if="reg.completed">
     category: {{reg.user.favorite}}
+    {{ reg.favoriteItems.category.name}}
+    <!-- <ul>
+      <li ng-repeat = "list in reg.favoriteItems">{{list}}</li>
+    </ul> -->
   </div>
+
+  <menu-item ng-repeat="menuItem in menuItemsCtrl.menuItems.menu_items"
+             menu-item="menuItem">
+  </menu-item>
 
 </div>

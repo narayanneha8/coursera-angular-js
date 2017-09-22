@@ -4,22 +4,24 @@
   angular.module('public')
   .controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['SignUpService'];
-  function SignUpController(SignUpService){
+  SignUpController.$inject = ['SignUpService', 'MenuService'];
+  function SignUpController(SignUpService, MenuService){
     var reg = this;
     reg.user = {};
+  
+    // reg.favoriteItems = MenuService.getMenuItems(reg.user.favorite);
+
 
     reg.submit = function(){
-      console.log("first Name",reg.user.firstname);
       reg.completed = true;
 
       SignUpService.register(reg.user.firstname, reg.user.lastname, reg.user.phone, reg.user.email, reg.user.favorite);
-      console.log("user signed up", reg.user.firstname);
-
+      reg.favoriteItems = MenuService.getMenuItems(reg.user.favorite);
+      console.log("items: ", reg.favoriteItems);
     };
 
     reg.getUser = SignUpService.getUsers();
-    console.log("user object", reg.getUser);
+
   }
 
 })();
