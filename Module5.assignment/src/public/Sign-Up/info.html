@@ -1,12 +1,14 @@
-
-
-  <div  ng-if="reg.completed">
-    First Name: {{ reg.user.firstname}} <br>
-    Last Name: {{ reg.user.lastname}} <br>
-    Email: {{ reg.user.email}} <br>
-    Phone: {{ reg.user.phone }}
+  <div>
+    {{ info.user.firstname}} <br>
+    {{ info.user.lastname}} <br>
+    {{ info.user.email}} <br>
+    {{ info.user.phone }}
+  </div>
+  <div>
+    <div> {{info.Dish.short_name}} <br> {{info.Dish.name}}</div>
+    <img ng-src= "{{info.PictureUrl}}">
   </div>
 
-  <div ng-if="!reg.completed">
+  <div ng-if="info.NotValidUser()">
     Not Signed Up Yet.<a ui-sref="public.SignUp"><span> Sign up Now!</span>
   </div>

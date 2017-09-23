@@ -4,23 +4,26 @@
   angular.module('public')
   .controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['SignUpService', 'MenuService'];
-  function SignUpController(SignUpService, MenuService){
+  SignUpController.$inject = ['SignUpService'];
+  function SignUpController(SignUpService){
     var reg = this;
-    reg.user = {};
-  
-    // reg.favoriteItems = MenuService.getMenuItems(reg.user.favorite);
-
 
     reg.submit = function(){
       reg.completed = true;
+      var promise = SignUpService.getFavorite(reg.user.favorite);
 
-      SignUpService.register(reg.user.firstname, reg.user.lastname, reg.user.phone, reg.user.email, reg.user.favorite);
-      reg.favoriteItems = MenuService.getMenuItems(reg.user.favorite);
-      console.log("items: ", reg.favoriteItems);
+      promise.then(function(response){
+        reg.exists = true;
+        reg.Dish = response;
+        SignUpService.register(reg.user.firstname, reg.user.lastname, reg.user.phone, reg.user.email, reg.user.favorite);
+
+      })
+      .catch(function(error){
+        reg.exists = false;
+        reg.error = true;
+        console.log("something went terribly wrong");
+      });
     };
-
-    reg.getUser = SignUpService.getUsers();
 
   }
 

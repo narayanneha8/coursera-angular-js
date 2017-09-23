@@ -41,8 +41,12 @@
         </span>
         <br>
 
-        <input type="text" name="favorite" placeholder="Favourite item number"
-        ng-model="reg.user.favorite"><br>
+        <input type="text" name="favorite" placeholder="Dish Sort Name"
+        ng-model="reg.user.favorite">
+        <span ng-if="reg.error">
+          This is not a Valid Dish
+        </span>
+        <br>
 
       <button
         ng-disabled="regForm.$invalid"
@@ -57,11 +61,7 @@
   </fieldset>
 
   <div ng-if="reg.completed">
-    category: {{reg.user.favorite}}
-    {{ reg.favoriteItems.category.name}}
-    <!-- <ul>
-      <li ng-repeat = "list in reg.favoriteItems">{{list}}</li>
-    </ul> -->
+    Your information has been saved
   </div>
 
   <menu-item ng-repeat="menuItem in menuItemsCtrl.menuItems.menu_items"

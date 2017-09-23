@@ -47,23 +47,25 @@ function routeConfig ($stateProvider) {
       templateUrl: 'src/public/Sign-Up/SignUp.html',
       controller: 'SignUpController',
       controllerAs: 'reg'
-      // params: {
-      //   category: null
-      // },
-      // resolve: {
-      //   favoriteItems: ['MenuService', '$stateParams', function(MenuService, $stateParams){
-      //     return MenuService.getMenuItems($stateParams.reg.user.favorite);
-      //   }]
-      //
-      // }
 
     })
 
     .state('public.info', {
       url: '/info',
       templateUrl:'src/public/Sign-Up/info.html',
-      controller: 'SignUpController',
-      controllerAs: 'reg'
+      controller: 'InfoCtrl',
+      controllerAs: 'info',
+      resolve: {
+        user: ['SignUpService', function(SignUpService){
+          return SignUpService.getUser();
+        }],
+        Dish: ['SignUpService', function(SignUpService){
+          return SignUpService.FavoriteDish;
+        }],
+        PictureUrl: ['SignUpService', function(SignUpService){
+          return SignUpService.getImageUrl();
+        }]
+      }
 
     });
 }
